@@ -1,0 +1,19 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: near
+    name: chat
+    network: near-testnet
+    source:
+      account: "zvyazok.testnet"
+      startBlock: 99523207
+    mapping:
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Contact
+        - Message
+      receiptHandlers:
+        - handler: handleReceipt
+      file: ./src/chat.ts

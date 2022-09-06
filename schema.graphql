@@ -1,0 +1,14 @@
+type Contact @entity {
+  id: ID! # phone number
+  account_id: String!
+  sent_messages: [Message!]! @derivedFrom(field: "from")
+  received_messages: [Message!]! @derivedFrom(field: "to")
+}
+
+type Message @entity {
+  id: ID!
+  from: Contact!
+  to: Contact!
+  message_text: String!
+  timestamp: BigInt!
+}
