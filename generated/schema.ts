@@ -42,15 +42,6 @@ export class Contact extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get account_id(): string {
-    let value = this.get("account_id");
-    return value!.toString();
-  }
-
-  set account_id(value: string) {
-    this.set("account_id", Value.fromString(value));
-  }
-
   get sent_messages(): Array<string> {
     let value = this.get("sent_messages");
     return value!.toStringArray();

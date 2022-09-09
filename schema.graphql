@@ -1,6 +1,5 @@
 type Contact @entity {
   id: ID! # phone number
-  account_id: String!
   sent_messages: [Message!]! @derivedFrom(field: "from")
   received_messages: [Message!]! @derivedFrom(field: "to")
 }

@@ -25,16 +25,8 @@ function handleRegisterAccount(
 ): void {
   const functionCall = action.toFunctionCall();
   const args = json.fromString(functionCall.args.toString()).toObject();
-  let account = args.get("account");
-  let accountId: string;
-  if (!account) {
-    accountId = receiptWithOutcome.receipt.signerId;
-  } else {
-    accountId = account.toString();
-  }
   const phoneNumber = args.get("phone_number")!.toString();
   const contact = new Contact(phoneNumber);
-  contact.account_id = accountId;
   contact.save();
 }
 
